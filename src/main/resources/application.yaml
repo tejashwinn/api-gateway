@@ -9,3 +9,10 @@ server:
 spring:
   application:
     name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: admin
+          predicates:
+            - Path=/admin/**
+          uri: lb://admin-service
